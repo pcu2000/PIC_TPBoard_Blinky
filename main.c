@@ -89,27 +89,25 @@ int main(void) {
  
  // *** ENDLOS-LOOP *** 
  while(1) 
- { 
- PORTD = PORTC; //Schalterstellung auf LED's
- // *** BLINKVORGANG *** 
- if(delay_Timer <= led_IMPULS) // Time-Phase kleiner led_IMPULS 
- { 
- //PORTE = 0x01;
- INTLed = ON;
- } 
- else if(delay_Timer <= led_ZYKLUS) // Zeit <= LED-Zyklus 
- { 
- //PORTE = 0x00;
- INTLed = OFF;
- } 
- else 
- { 
- delay_Timer = 0; // neuer Zyklus 
- } 
- 
- // *** GLOBAL DELAY *** 
- __delay_ms(delay_EINHEIT); // 1ms warten 
- delay_Timer = delay_Timer + 1; 
+    { 
+    PORTD = PORTC; //Schalterstellung auf LED's
+    // *** BLINKVORGANG *** 
+    if(delay_Timer <= led_IMPULS) // Time-Phase kleiner led_IMPULS 
+        { 
+            INTLed = ON;
+        } 
+    else if(delay_Timer <= led_ZYKLUS) // Zeit <= LED-Zyklus 
+        { 
+            INTLed = OFF;
+        } 
+    else 
+        { 
+            delay_Timer = 0; // neuer Zyklus 
+        } 
+    
+    // *** GLOBAL DELAY *** 
+    __delay_ms(delay_EINHEIT); // 1ms warten 
+    delay_Timer = delay_Timer + 1; 
  } //end of while 
 } //end of main 
 
